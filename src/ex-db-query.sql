@@ -1,6 +1,6 @@
 USE db_university;
 
-SELECT count(*) as 'studenti nati nel 1990'
+SELECT * 
 FROM students
 WHERE YEAR(date_of_birth) = 1990;
 
@@ -14,7 +14,7 @@ WHERE  YEAR(date_of_birth) > 1995
 ORDER BY YEAR(date_of_birth) desc;
 
 
-SELECT count(*),year, period
+SELECT *,year, period
 FROM courses
 WHERE year = 1
 AND period = 'I semestre';
@@ -24,7 +24,7 @@ FROM exams
 WHERE date = '2020-06-20'
 AND hour > '14:00:00';
 
-SELECT count(*) as 'Corsi Magistrale'
+SELECT * 
 FROM degrees
 WHERE level LIKE 'magistrale';
 
@@ -33,11 +33,11 @@ FROM departments;
 
 SELECT count(*) as 'Insegnati con un numero di telefono'
 FROM teachers
-WHERE phone;
+WHERE phone is null;
 
-SELECT count(*), year(date_of_birth)
+SELECT count(*), year(enrolment_date)
 FROM students
-GROUP BY year(date_of_birth);
+GROUP BY year(enrolment_date);
 
 
 SELECT count(*),office_address
